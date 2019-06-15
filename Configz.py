@@ -8,12 +8,18 @@ import shutil
 def clear():
     os.system('cls')
 
-# Stolen from https://stackoverflow.com/questions/4829043/how-to-remove-read-only-attrib-directory-with-python-in-windows
+
 def on_rm_error(func, path, exc_info):
+    # Stolen from https://stackoverflow.com/questions/4829043/how-to-remove-read-only-attrib-directory-with-python-in-windows
     # path contains the path of the file that couldn't be removed
     # let's just assume that it's read-only and unlink it.
     os.chmod(path, stat.S_IWRITE)
     os.unlink(path)
+
+
+def install():
+    clear()
+
 
 class Configz:
     def __init__(self):
@@ -36,7 +42,7 @@ class Configz:
         if response.upper() == "A":
             Configz.copy_step1(self)
         elif response.upper() == "B":
-            Configz.install(self)
+            install()
         elif response.upper() == "C":
             sys.exit()
         else:
@@ -51,15 +57,17 @@ class Configz:
               "----------------------------------")
         i = 0
         for application in self.applications:
-            i += 1
             status = str(self.applications[application]["status"]).lower()
             if status == "enabled":
                 status = "[X]"
             elif status == "disabled":
                 status = "[ ]"
             else:
-                status = "[*]"
-                # todo rewrite this to set it (to enabled)
+                status = "[ ]"
+                self.settings["applications"][str(list(self.applications)[i])]["status"] = "disabled"
+                with open('settings.json', 'w') as fp:
+                    json.dump(self.settings, fp, sort_keys=False, indent=4)
+            i += 1
             print("[" + str(i) + "]\t| " + status + "\t| " + application)
 
         print("----------------------------------\n"
@@ -96,17 +104,25 @@ class Configz:
         i = 0
         for application in self.applications:
             if self.applications[list(self.applications)[i]]["status"] == "enabled":
-                self.folder("{}\{}".format(self.configFolder, application), application)
+                self.folder(r"{}\{}".format(self.configFolder, application), application)
 
                 for rule in self.applications[list(self.applications)[i]]["rules"]:
                     try:
                         for folder in self.applications[list(self.applications)[i]]["rules"][rule]["configFolders"]:
-                            self.folder("{}\{}\{}".format(self.configFolder, application, folder), application)
-                            self.copyFolder("{}\{}".format(self.applications[list(self.applications)[i]]["rules"][rule]["dir"], folder), "{}\{}\{}".format(self.configFolder, application, folder), application)
-                        for file in self.applications[list(self.applications)[i]]["rules"][rule]["configFiles"]:
-                            self.copyFile(self.applications[list(self.applications)[i]]["rules"][rule]["dir"], file, application)
+                            self.folder(r"{}\{}\{}".format(self.configFolder, application, folder), application)
+                            self.copy_folder(
+                                r"{}\{}".format(self.applications[list(self.applications)[i]]["rules"][rule]["dir"],
+                                                folder), r"{}\{}\{}".format(self.configFolder, application, folder),
+                                application)
                     except KeyError:
                         pass  # no config files/folders
+                    try:
+                        for file in self.applications[list(self.applications)[i]]["rules"][rule]["configFiles"]:
+                            self.copy_files(self.applications[list(self.applications)[i]]["rules"][rule]["dir"], file,
+                                            application)
+                    except KeyError:
+                        pass  # no config files/folders
+
             i += 1
         print("Finished!")
         self.menu()
@@ -130,7 +146,7 @@ class Configz:
         entry = entry.replace("__username__", os.getlogin())
         return entry
 
-    def copyFile(self, start_dir: str, file, app: str):
+    def copy_files(self, start_dir: str, file, app: str):
         start_dir = self.decode(start_dir)
         end_dir = r"{}\{}".format(self.configFolder, app)
         try:
@@ -140,11 +156,11 @@ class Configz:
         except FileNotFoundError:
             print("*[{}] Couldn't find {}".format(app, file))
 
-    def copyFolder(self, start_dir: str, end_dir: str, app: str):
+    def copy_folder(self, start_dir: str, end_dir: str, app: str):
         start_dir = self.decode(start_dir)
 
         self.folder(self.configFolder, app)
-        self.folder("{}\{}".format(self.configFolder, app), start_dir)
+        self.folder(r"{}\{}".format(self.configFolder, app), start_dir)
 
         shutil.rmtree(end_dir, onerror=on_rm_error)  # deletes the subfolder's contents
         shutil.copytree(start_dir, end_dir)
@@ -156,9 +172,6 @@ class Configz:
         if not os.path.exists(location):
             os.makedirs(location)  # creates base folder if one isn't already made
             print("[{}] Creating {}".format(app, location))
-
-    def install(self):
-        clear()
 
 
 Configz().menu()

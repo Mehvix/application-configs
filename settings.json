@@ -28,14 +28,10 @@
             }
         },
         "Apex Legends": {
-            "status": "disabled",
+            "status": "enabled",
             "rules": {
                 "rule1": {
                     "dir": "__drive1__Users\\__username__\\Saved Games\\Respawn\\Apex",
-                    "configFiles": [
-                        "local",
-                        "profile"
-                    ],
                     "configFolders": [
                         "local",
                         "profile"
@@ -45,8 +41,7 @@
                     "dir": "__drive1__Program Files (x86)\\Origin Games\\Apex\\cfg",
                     "configFiles": [
                         "autoexec.cfg"
-                    ],
-                    "configFolders": []
+                    ]
                 }
             }
         },
