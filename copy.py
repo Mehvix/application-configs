@@ -1,11 +1,9 @@
 import shutil, stat
 import ctypes, sys
+import json
 
 import os
 user = os.getlogin()
-
-
-drive = "C:\\"
 
 
 """
@@ -69,18 +67,22 @@ def copyfile(files: list, folders: list, location: str, game: str):
 
 
 if __name__ == "__main__":
+    try:
+        with open('settings.json', 'r') as fp:
+            settings = json.load(fp)
+        drive = settings["drive"]
 
-    # ========================== Age of Empires II ==========================
-    location = drive + r"Program Files (x86)\Steam\steamapps\common\Age2HD\Profiles"
-    configFiles = ["player0.hki"]
-    copyfile(configFiles, [], location, "Age2HD")
+    except (TypeError, KeyError, json.decoder.JSONDecodeError):
+        try:
+            with open('settings.json', 'r') as fp:
+                settings = json.load(fp)
+        except json.decoder.JSONDecodeError:
+            settings = {}
+        drive = input("Enter the drive your configs are stored on:\nIt should be formatted something like \"C:\\\"\n")
+        settings["drive"] = drive
+        with open('settings.json', 'w') as fp:
+            json.dump(settings, fp, sort_keys=True, indent=2)
 
-    # ========================== TF2 ==========================
-    location = drive + r"Program Files (x86)\Steam\steamapps\common\Team Fortress 2\tf\cfg"
-    configFiles = ["autoexec.cfg", "server_blacklist.txt", "config.cfg", "settings.cfg","custom.cfg", "gfx.cfg", "network.cfg", "binds.cfg",
-                   "demoman.cfg", "engineer.cfg", "heavyweapons.cfg", "medic.cfg", "sniper.cfg", "spy.cfg", "pyro.cfg", "scout.cfg", "soldier.cfg"]
-    configFolders = [r"tweaks"]
-    copyfile(configFiles, configFolders, location, "Team Fortress 2")
 
     # ========================== Apex ==========================
     location = drive + r"Users\{}\Saved Games\Respawn\Apex".format(user)

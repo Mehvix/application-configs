@@ -1,1 +1,0 @@
-Taken from [howtogeek.com](https://www.howtogeek.com/howto/windows-vista/add-take-ownership-to-explorer-right-click-menu-in-vista/)

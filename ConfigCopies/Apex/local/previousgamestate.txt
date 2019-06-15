@@ -1,8 +1,0 @@
-"GameState"
-{
-	"state.buildString"		"R5pc_r5launch_N52A_CL399039_2019_03_12_03_21_PM"
-	"state.totalMapsFullyConnectedTo"		"9"
-	"state.lastTimeStampInMinutes"		"90"
-	"state.wasGameRunning"		"0"
-	"state.lastMapFullyConnectedTo"		"no_map"
-}

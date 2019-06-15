@@ -1,0 +1,96 @@
+{
+    "scriptSettings": {
+        "configFolder": "ConfigCopies",
+        "activeMachine": "machine1"
+    },
+    "machineSettings": {
+        "machine1": {
+            "user": "Max",
+            "drives": {
+                "drive1": "C:\\"
+            },
+            "steamLibraries": {
+                "steamLib1": "Program Files (x86)\\Steam\\steamapps\\common"
+            }
+        }
+    },
+    "applications": {
+        "AoE II": {
+            "status": "enabled",
+            "rules": {
+                "rule1": {
+                    "dir": "__drive1____steamLib1__\\Age2HD\\Profiles",
+                    "configFiles": [
+                        "player0.hki"
+                    ],
+                    "configFolders": []
+                }
+            }
+        },
+        "Apex Legends": {
+            "status": "disabled",
+            "rules": {
+                "rule1": {
+                    "dir": "__drive1__Users\\__username__\\Saved Games\\Respawn\\Apex",
+                    "configFiles": [
+                        "local",
+                        "profile"
+                    ],
+                    "configFolders": [
+                        "local",
+                        "profile"
+                    ]
+                },
+                "rule2": {
+                    "dir": "__drive1__Program Files (x86)\\Origin Games\\Apex\\cfg",
+                    "configFiles": [
+                        "autoexec.cfg"
+                    ],
+                    "configFolders": []
+                }
+            }
+        },
+        "Quake Live": {
+            "status": "enabled",
+            "rules": {
+                "rule1": {
+                    "dir": "__drive1____steamLib1__\\Quake Live\\76561198127743698\\baseq3",
+                    "configFiles": [
+                        "autoexec.cfg"
+                    ],
+                    "configFolders": []
+                }
+            }
+        },
+        "TF2": {
+            "status": "enabled",
+            "rules": {
+                "rule1": {
+                    "dir": "__drive1____steamLib1__\\Team Fortress 2\\tf\\cfg",
+                    "configFiles": [
+                        "autoexec.cfg",
+                        "server_blacklist.txt",
+                        "config.cfg",
+                        "settings.cfg",
+                        "custom.cfg",
+                        "gfx.cfg",
+                        "network.cfg",
+                        "binds.cfg",
+                        "demoman.cfg",
+                        "engineer.cfg",
+                        "heavyweapons.cfg",
+                        "medic.cfg",
+                        "sniper.cfg",
+                        "spy.cfg",
+                        "pyro.cfg",
+                        "scout.cfg",
+                        "soldier.cfg"
+                    ],
+                    "configFolders": [
+                        "tweaks"
+                    ]
+                }
+            }
+        }
+    }
+}
