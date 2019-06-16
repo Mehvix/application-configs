@@ -1,0 +1,1 @@
+Yo, I don't know if these work - I never got around to finishing them and when I came back to this project I decided to make a single script. You're ***much*** better off just looking at [Configz.py!](https://github.com/Mehvix/ApplicationConfigs/blob/master/Configz.py)
