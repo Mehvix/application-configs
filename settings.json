@@ -1,7 +1,8 @@
 {
     "script_settings": {
         "config_folder": "ConfigCopies",
-        "active_machine": "machine1"
+        "active_machine": "machine1",
+        "steam_id": "76561198127743698"
     },
     "machine_settings": {
         "machine1": {
@@ -52,7 +53,7 @@
             "status": "enabled",
             "rules": {
                 "rule_1": {
-                    "dir": "__drive_1____steam_lib_1__\\Quake Live\\76561198127743698\\baseq3",
+                    "dir": "__drive_1____steam_lib_1__\\Quake Live\\__steam_id__\\baseq3",
                     "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\quake3",
                     "config_files": [
                         "autoexec.cfg"

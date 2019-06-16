@@ -231,6 +231,7 @@ class Configz:
             k += 1
 
         entry = entry.replace("__username__", os.getlogin())
+        entry = entry.replace("__steam_id__", self.settings["script_settings"]["steam_id"])
         return entry
 
     def copy_files(self, start_dir: str, end_dir: str, file, app: str):
