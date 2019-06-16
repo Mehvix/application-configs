@@ -6,5 +6,5 @@ Check out the [Projects Board](https://github.com/Mehvix/ApplicationConfigs/proj
 ## Supported Applications
 - [x] Age of Empires II  (Steam)
 - [x] Apex Legends
-- [x] Quake Live
+- [x] Quake 3
 - [x] TF2
