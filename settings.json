@@ -1,16 +1,16 @@
 {
-    "scriptSettings": {
-        "configFolder": "ConfigCopies",
-        "activeMachine": "machine1"
+    "script_settings": {
+        "config_folder": "ConfigCopies",
+        "active_machine": "machine1"
     },
-    "machineSettings": {
+    "machine_settings": {
         "machine1": {
             "user": "Max",
             "drives": {
-                "drive1": "C:\\"
+                "drive_1": "C:\\"
             },
-            "steamLibraries": {
-                "steamLib1": "Program Files (x86)\\Steam\\steamapps\\common"
+            "steam_libraries": {
+                "steam_lib_1": "Program Files (x86)\\Steam\\steamapps\\common"
             }
         }
     },
@@ -18,28 +18,31 @@
         "AoE II": {
             "status": "enabled",
             "rules": {
-                "rule1": {
-                    "dir": "__drive1____steamLib1__\\Age2HD\\Profiles",
-                    "configFiles": [
+                "rule_1": {
+                    "dir": "__drive_1____steam_lib_1__\\Age2HD\\Profiles",
+                    "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\Age2HD\\Profiles",
+                    "config_files": [
                         "player0.hki"
                     ],
-                    "configFolders": []
+                    "config_folders": []
                 }
             }
         },
         "Apex Legends": {
             "status": "enabled",
             "rules": {
-                "rule1": {
-                    "dir": "__drive1__Users\\__username__\\Saved Games\\Respawn\\Apex",
-                    "configFolders": [
+                "rule_1": {
+                    "dir": "__drive_1__Users\\__username__\\Saved Games\\Respawn\\Apex",
+                    "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\Apex",
+                    "config_folders": [
                         "local",
                         "profile"
                     ]
                 },
-                "rule2": {
-                    "dir": "__drive1__Program Files (x86)\\Origin Games\\Apex\\cfg",
-                    "configFiles": [
+                "rule_2": {
+                    "dir": "__drive_1__Program Files (x86)\\Origin Games\\Apex\\cfg",
+                    "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\Apex\\cfg",
+                    "config_files": [
                         "autoexec.cfg"
                     ]
                 }
@@ -48,24 +51,27 @@
         "Quake Live": {
             "status": "enabled",
             "rules": {
-                "rule1": {
-                    "dir": "__drive1____steamLib1__\\Quake Live\\76561198127743698\\baseq3",
-                    "configFiles": [
+                "rule_1": {
+                    "dir": "__drive_1____steam_lib_1__\\Quake Live\\76561198127743698\\baseq3",
+                    "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\quake3",
+                    "config_files": [
                         "autoexec.cfg"
                     ],
-                    "configFolders": []
+                    "config_folders": []
                 }
             }
         },
         "TF2": {
             "status": "enabled",
             "rules": {
-                "rule1": {
-                    "dir": "__drive1____steamLib1__\\Team Fortress 2\\tf\\cfg",
-                    "configFiles": [
+                "rule_1": {
+                    "dir": "__drive_1____steam_lib_1__\\Team Fortress 2\\tf\\cfg",
+                    "test_dir": "C:\\Users\\Max\\Documents\\GitHub\\GameConfigs\\installTesting\\Team Fortress 2\\tf\\cfg",
+                    "config_files": [
                         "autoexec.cfg",
                         "server_blacklist.txt",
                         "config.cfg",
+                        "config_default.cfg",
                         "settings.cfg",
                         "custom.cfg",
                         "gfx.cfg",
@@ -81,7 +87,7 @@
                         "scout.cfg",
                         "soldier.cfg"
                     ],
-                    "configFolders": [
+                    "config_folders": [
                         "tweaks"
                     ]
                 }

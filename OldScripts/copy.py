@@ -86,19 +86,19 @@ if __name__ == "__main__":
 
     # ========================== Apex ==========================
     location = drive + r"Users\{}\Saved Games\Respawn\Apex".format(user)
-    configFolders = [r"local", r"profile"]
-    copyfile([], configFolders, location, "Apex")
+    config_folders = [r"local", r"profile"]
+    copyfile([], config_folders, location, "Apex")
 
     location = drive + r"Program Files (x86)\Origin Games\Apex\cfg"
-    configFiles = ["autoexec.cfg"]
-    copyfile(configFiles, [], location, "Apex")
+    config_files = ["autoexec.cfg"]
+    copyfile(config_files, [], location, "Apex")
 
     # ========================== Quake Live ==========================
     steamid = (os.listdir(drive + r"Program Files (x86)\Steam\steamapps\common\Quake Live"))[0]
 
     location = drive + r"Program Files (x86)\Steam\steamapps\common\Quake Live\{}\baseq3".format(steamid)
-    configFiles = ["autoexec.cfg"]
-    copyfile(configFiles, [], location, "Quake Live")
+    config_files = ["autoexec.cfg"]
+    copyfile(config_files, [], location, "Quake Live")
 
     print("\n=====================================================\n")
     k = input("Press Enter to Exit")
